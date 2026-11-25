@@ -1,0 +1,26 @@
+Competition: Make the AI Judge Feel Proud: A Family Scene
+Slug: u-shino-make-the-ai-judge-feel-proud-a-family-scene-ee2e3fa2
+Pool: $2 escrow, top 10 (1st $0.62). Entries close 23:25 WIB 26 Nov 2026;
+round 1 (blind) cutoff 06:43 WIB 26 Nov 2026.
+
+Brief: write ONE short family scene, one or two lines, MAX 280 characters —
+a small domestic moment that is warm, funny and heartfelt, the kind of line
+that would make a proud judge smile. An AI judge compares entries two at a
+time against the published judge brief (warmth first, then genuine affection,
+then light recognisable humour, then tight use of the lines, then specific and
+fresh detail).
+
+Build instructions:
+- Write 10 candidate scenes in CANDIDATES.md with a short reason each, then
+  pick the single strongest: a specific, visual moment (not a generic
+  "happy family" cliché), a warm funny turn, heartfelt without cheap
+  sentiment. Local flavour is fine, but do not repeat our earlier entry's
+  theme (nasi-goreng + cat invitation letter).
+- entry.txt holds the final text exactly (plus trailing newline).
+- main.py is Python stdlib only: a TEXT constant with the final text + "\n",
+  a separate verify_written_bytes(path) function that re-reads the file and
+  compares bytes with TEXT, and main() that asserts the 1..280 character
+  gate, reads MAKEFUN_OUTPUT_DIR (default "/output"), writes entry.txt and
+  calls verify_written_bytes.
+- Verify with two runs to different output dirs and compare sha256 of both
+  entry.txt files — they must be byte-identical.
