@@ -44,7 +44,8 @@ def verify_written_bytes(path):
     return True
 
 
-def main():
+def check_gate():
+    """Enforce the entry gate: 1..280 characters, at most two lines."""
     text_without_newline = TEXT.rstrip("\n")
     if not 1 <= len(TEXT) <= 280:
         raise AssertionError(
@@ -52,6 +53,10 @@ def main():
         )
     if text_without_newline.count("\n") + 1 > 2:
         raise AssertionError("entry must be one or two lines")
+
+
+def main():
+    check_gate()
 
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
